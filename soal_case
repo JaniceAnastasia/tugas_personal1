@@ -1,0 +1,154 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+struct data{
+  int employeeID;
+  char nama[30];
+  int dob;
+  char tempatLahir[30];
+  char jabatan[50];
+  struct data *next;
+}*head, *tail, *curr;
+
+void view(){
+   int i = 0, j = 0;
+   //clear();
+   printf("   ---IDENTITAS KARYAWAN---\n\n");
+   for(j = 0; j < 68; j++)
+   printf("=");
+   printf("\n");
+   printf("| %-5s | %-30s | %-15s | %-32s | %-50s |\n",
+          "employeeID", "Nama", "DoB", "Tempat Lahir", "Jabatan");
+   for(j = 0; j <68; j++)
+   printf("=");
+   printf("\n");
+   curr = head;
+   while (curr){
+      i++;
+      printf ("| %-5s | %-30s | %-15s | %-32s | %-50s |\n",
+          i, curr-> Nama, curr-> DoB, curr-> Tempat Lahir, curr-> Jabatan);
+      curr = curr->next;
+   }
+   for(j = 0; j <68; j++)
+   printf("=");
+   printf("\n");
+   getchar();
+   fflush (stdin);
+}
+
+void push (int employeeID, char nama[], int dob, char tempatLahir[], char jabatan[]){
+  curr = (struct data*)malloc(sizeof(struct data));
+  curr->employeeID = employeeID;
+  strcpy(curr->nama, nama);
+  curr->dob = dob;
+  strcpy(curr->tempatLahir, tempatLahir);
+  strcpy(curr->jabatan, jabatan);
+  if(head==NULL){
+    head = tail = curr;
+  }
+  else {
+    tail->next = curr;
+    tail = curr;
+  }
+  tail->next = NULL;
+}
+
+void pop(int employeeID){
+  struct employeeID *prev;
+  prev = node->prev;
+  node->prev->next = node->next;
+  node->next->prev = prev;
+  free(node);
+  return;
+}
+
+void menu(){
+  printf("\n IDENTITAS KARYAWAN");
+  printf("\n ++++++++++++++++++");
+  printf("\n 1. Employee ID");
+  printf("\n 2. Add (PUSH) Identitas Karyawan");
+  printf("\n 3. Delete (POP) Identitas Karyawan");
+  printf("\n 4. Exit");
+  printf("\n Input your choice : ");
+}
+
+do{
+  clear();
+  menu();
+  scanf("%d", &choice);
+  fflush(stdin);
+  switch(choice)
+  {
+    case 1 : break;
+    case 2 : break;
+    case 3 : break;
+  }
+}while(choice!=4);
+
+case 1 : view();
+         break;
+
+case 2 :
+  do{
+    printf(" Input Employee ID : ");
+    scanf("%d", employeeID);
+    fflush(stdin);
+  }while(employeeID<1 || employeeID>5);
+  printf("\n");
+  do{
+    printf(" Input Nama Karyawan : ");
+    scanf("%[*\n]", nama);
+    fflush(stdin);
+  }while(strlen(nama)<3 || strlen(nama)>30;
+  printf("\n");
+  do{
+    printf ("Input Tanggal Lahir : ");
+    scanf("%d", dob);
+    fflush(stdin);
+  }while(dob<1 || dob>15);
+  printf("\n");
+  do{
+    printf(" Input Tempat Lahir : ");
+    scanf("%[*\n]", tempatLahir);
+    fflush(stdin);
+  }while(strlen(tempatLahir)<3 || strlen(tempatLahir)>32;
+  printf("\n");
+  do{
+    printf(" Input Jabatan : ");
+    scanf("%[*\n]", jabatan);
+    fflush(stdin);
+  }while(strlen(jabatan)<3 || strlen(jabatan)>50;
+  printf("\n");
+  push(employeeID, nama, dob, tempatLahir, jabatan);
+  printf("\n\n\n --- Add New Identity Success ---\n");
+  getchar();
+  fflush(stdin);
+  break;
+  
+case 3 :
+  if(head==NULL){
+    printf("List is Empty. . ");
+  }
+  else{
+    do
+    {
+      printf(" Input the New Identity : ");
+      scanf("%d", employeeID);
+      fflush(stdin);
+    }while(employeeID<3 || employeeID>5);
+    pop(employeeID);
+  }
+  getchar();
+  fflush(stdin);
+  break;
+  
+  void popall(){
+  while(head!=NULL)
+  {
+    curr=head;
+    head=head->next;
+    free(curr);
+  }
+  return 0;
+}
